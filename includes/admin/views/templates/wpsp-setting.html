@@ -1,0 +1,692 @@
+<div class="wpspsettingController" ng-controller="wpspsettingController">
+    <div class="row" ng-init="get_list()">
+        <div class="col-md-12" ng-init="get_setting_form()">
+
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="/wpspsettingController#tab_1" aria-expanded="true">{{translation.GENERAL}}</a></li>
+                    <li class=""><a data-toggle="tab" href="/wpspsettingController#tab_2" aria-expanded="false">{{translation.FORM_SETTING}}</a></li>
+                    <li class=""><a data-toggle="tab" href="/wpspsettingController#tab_security" aria-expanded="false">Popup</a></li>
+                    <li class=""><a data-toggle="tab" href="/settingController#tab_integration" aria-expanded="false">Integration</a></li>
+                    <li class=""><a data-toggle="tab" href="/wpspsettingController#tab_3" aria-expanded="false">{{translation.EMAIL_NOTIFICATION}}</a></li>                    
+                    <li class=""><a data-toggle="tab" href="/wpspsettingController#tab_help" aria-expanded="false">{{translation.HELP}}</a></li>  
+                    <li class="pull-right"><a class="text-muted" href="#"><i class="fa fa-gear"></i></a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab_1" class="tab-pane active">
+                        <div class="box box-default box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Addon</h3>                                
+                                <div class="box-tools">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div  class="box-body no-padding">
+                                <form role="form">
+                                   <hr>
+
+                                    <div class="col-md-3">                 
+                                               <div class="small-box bg-gray">
+                                                <div class="inner">
+                                                  <h4 clss="text-green">WP Subscription Newsletter</h4>
+
+                                                  <p class="text-muted">Create Your Newsletter! Send Emails In Bulk and track emails · Create Your Email Templates</p>
+                                                </div>
+                                                <div class="icon">
+                                                  <i class="ion ion-bag"> </i>
+                                                </div>
+                                                <a href="http://www.wpseeds.com/product/wp-subscription-newsletter/" target="_blank" class="small-box-footer">Get Import Addon <i class="fa fa-arrow-circle-right"></i></a>
+                                              </div> 
+                                    </div>
+
+                                    <div class="col-md-3">                 
+                                               <div class="small-box bg-gray">
+                                                <div class="inner">
+                                                  <h4 clss="text-green">WP Subscription Bar</h4>
+
+                                                  <p class="text-muted">Add a form to Header,Sticky Footer,  side Floating</p>
+                                                </div>
+                                                <div class="icon">
+                                                  <i class="ion ion-bag"> </i>
+                                                </div>
+                                                <a href="http://www.wpseeds.com/product/wp-subscription-bar/" target="_blank"  class="small-box-footer">Get WP Subscription Bar Addon <i class="fa fa-arrow-circle-right"></i></a>
+                                              </div> 
+                                    </div>
+                                   
+
+                                    <div class="col-md-3">                 
+                                               <div class="small-box bg-gray">
+                                                <div class="inner">
+                                                  <h4 clss="text-green">Import Lists</h4>
+
+                                                  <p class="text-muted">Import Lists using CSV files.</p>
+                                                </div>
+                                                <div class="icon">
+                                                  <i class="ion ion-bag"> </i>
+                                                </div>
+                                                <a href="http://www.wpseeds.com/product/wp-subscription-import/" target="_blank"  class="small-box-footer">Get Import Addon <i class="fa fa-arrow-circle-right"></i></a>
+                                              </div> 
+                                    </div>
+
+                                    <div class="col-md-2">
+                                    <a href="http://www.wpseeds.com/demo/wp-subscription/" target="_blank" class="col-md-2 btn btn-block btn-info btn-sm"
+                                    >Demo</a>
+                                    </div>
+                                   
+                                      
+                                    
+                                   
+                                   
+
+                                   
+                                </form>
+                            </div><!-- /.box-body -->
+                        </div><!-- /. box -->  
+
+
+                       
+                       
+
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div id="tab_2" class="tab-pane">
+                        <div class="box box-default box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">{{translation.SUBSCRIPTION_FORM_SETTING}}</h3>                                
+                                <div class="box-tools">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div ng-init="get_setting_page()" class="box-body no-padding">
+                                <form role="form">
+                                  <div class="box-body">   
+                                   <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_title">{{translation.SUBSCRIPTION_FORM_TITLE}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" class="form-control" ng-model="wp_subscription_title" id="wp_subscription_title"value="{{wp_subscription_title}}" placeholder="{{translation.SUBSCRIPTION_FORM_TITLE}}">                                            
+                                                {{translation.SUBSCRIPTION_FORM_TITLE}}
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row row"><hr>
+                                            <div class="col-md-3"><label for="wp_subscription_sub_title">{{translation.SUBSCRIPTION_FORM_SUB_TITLE}}</label></div>
+                                            <div class="col-md-9"> 
+                                                 <textarea class="form-control" id="wp_subscription_sub_title" ng-model="wp_subscription_sub_title" placeholder="{{translation.SUBSCRIPTION_FORM_SUB_TITLE}}" cols="80" rows="4">{{wp_subscription_sub_title}}</textarea>                                              
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group row row"><hr>
+                                            <div class="col-md-3"><label for="wp_subscription_enable_first_name">{{translation.ENABLE_FIRST_NAME}}</label></div>
+                                            <div class="col-md-9"> <input  id="wp_subscription_enable_first_name" type="checkbox"  id="wp_subscription_enable_first_name" ng-checked="wp_subscription_enable_first_name == 1" ng-model="wp_subscription_enable_first_name">
+                                                {{translation.ENABLE_FIRST_NAME_HELP}} 
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_first_name">{{translation.ENTER_FIRST_NAME}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" class="form-control" placeholder="{{translation.ENTER_FIRST_NAME}}" id="wp_subscription_first_name"ng-model="wp_subscription_first_name" value="{{wp_subscription_first_name}}">                                            
+                                                {{translation.ENTER_FIRST_NAME}}
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group row row"><hr>
+                                            <div class="col-md-3"><label for="wp_subscription_enable_last_name">{{translation.ENABLE_LAST_NAME}}</label></div>
+                                            <div class="col-md-9"> <input id="wp_subscription_enable_last_name" type="checkbox"   ng-checked="wp_subscription_enable_last_name == 1" ng-model="wp_subscription_enable_last_name">
+                                                {{translation.ENABLE_LAST_NAME_HELP}} 
+                                            </div>
+
+                                        </div>
+                                           <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_last_name">{{translation.ENTER_LAST_NAME}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" class="form-control" id="wp_subscription_last_name"placeholder="{{translation.ENTER_LAST_NAME}}" ng-model="wp_subscription_last_name" value="{{wp_subscription_last_name}}">                                            
+                                                {{translation.ENTER_LAST_NAME}}
+                                            </div>
+
+                                        </div>
+
+                                         <div class="form-group row row"><hr>
+                                            <div class="col-md-3"><label for="wp_subscription_email_label">{{translation.ENTER_EMAIL_LABEL}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" class="form-control" id="wp_subscription_email_label"placeholder="{{translation.ENTER_EMAIL_LABEL}}" ng-model="wp_subscription_email_label" value="{{wp_subscription_email_label}}">                                            
+                                                {{translation.ENTER_EMAIL_LABEL}}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row row"><hr>
+                                            <div class="col-md-3"><label for="wp_subscription_button_label">{{translation.SUBSCRIPTION_FORM_BUTTON}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" class="form-control" id="wp_subscription_button_label"placeholder="{{translation.SUBSCRIPTION_FORM_BUTTON}}" ng-model="wp_subscription_button_label" value="{{wp_subscription_button_label}}">                                            
+                                                {{translation.SUBSCRIPTION_FORM_BUTTON}}
+                                            </div>
+                                        </div>
+
+                                      
+
+                                       
+                                    </div><!-- /.box-body -->
+
+                                   <div class="box-footer">                        
+                                        <input type="button" class="btn btn-primary" name="update_setting_form"  value="{{translation.UPDATE}}" ng-click="update_setting_form()"> 
+
+                                    </div>
+                                </form>
+                            </div><!-- /.box-body -->
+                        </div><!-- /. box -->   
+                   
+                   
+                        <div class="box box-default box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">{{translation.SUBSCRIPTION_FORM_ERROR_MSG}}</h3>                                
+                                <div class="box-tools">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body no-padding">
+                                <form role="form">
+                                  <div class="box-body">   
+                                        <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_error_msg_required">{{translation.SUBSCRIPTION_FORM_ERROR_MSG_REQUIRED_FIELD}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" class="form-control" ng-model="wp_subscription_error_msg_required" id="wp_subscription_error_msg_required"value="{{wp_subscription_error_msg_required}}" placeholder="{{translation.SUBSCRIPTION_FORM_ERROR_MSG_REQUIRED_FIELD}}">                                            
+                                                {{translation.SUBSCRIPTION_FORM_ERROR_MSG_REQUIRED_FIELD}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_error_msg_invalid_email">{{translation.SUBSCRIPTION_FORM_ERROR_MSG_INVALID_EMAIL}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" class="form-control" ng-model="wp_subscription_error_msg_invalid_email" id="wp_subscription_error_msg_invalid_email"value="{{wp_subscription_error_msg_invalid_email}}" placeholder="{{translation.SUBSCRIPTION_FORM_ERROR_MSG_INVALID_EMAIL}}">                                            
+                                                {{translation.SUBSCRIPTION_FORM_ERROR_MSG_INVALID_EMAIL}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_error_msg_email_exist">{{translation.SUBSCRIPTION_FORM_ERROR_MSG_EMAIL_EXIST}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" class="form-control" ng-model="wp_subscription_error_msg_email_exist" id="wp_subscription_error_msg_email_exist"value="{{wp_subscription_error_msg_email_exist}}" placeholder="{{translation.SUBSCRIPTION_FORM_ERROR_MSG_EMAIL_EXIST}}">                                            
+                                                {{translation.SUBSCRIPTION_FORM_ERROR_MSG_EMAIL_EXIST}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_success_msg">{{translation.SUBSCRIPTION_FORM_SUCCEES_MSG}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" class="form-control" ng-model="wp_subscription_success_msg" id="wp_subscription_success_msg"value="{{wp_subscription_success_msg}}" placeholder="{{translation.SUBSCRIPTION_FORM_SUCCEES_MSG}}">                                            
+                                                {{translation.SUBSCRIPTION_FORM_SUCCEES_MSG}}
+                                            </div>
+                                        </div>
+                                       
+                                    </div><!-- /.box-body -->
+
+                                   <div class="box-footer">                        
+                                        <input type="button" class="btn btn-primary" name="update_setting_form_err_msg"  value="{{translation.UPDATE}}" ng-click="update_setting_form_err_msg()"> 
+
+                                    </div>
+                                </form>
+                            </div><!-- /.box-body -->
+                        </div><!-- /. box -->   
+
+                         <div class="box box-default box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">{{translation.APPEAREARANCE_AND_LOOK}}</h3>                                
+                                <div class="box-tools">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body no-padding">
+                                <form role="form">
+                                    <div class="box-body">
+                                        <div class="form-group row">
+                                            <div class="col-md-3"><label for="wp_subscription_language">Language</label></div>
+                                            <div class="col-md-9"> 
+                                                <select id="wp_subscription_language" ng-model="wp_subscription_language">
+                                                    <option class="ng-scope ng-binding" value="English">English</option>                                
+                                                </select>
+                                                <i class=" fa fa-question-circle"></i> {{translation.DEFUALT_LNGUAGE}}
+                                            </div>
+
+                                        </div>
+                                        
+                                        <div class="form-group row">
+                                            <div class="col-md-3"><label for="wp_subscription_appearance_skin">{{translation.DEFUALT_SKIN}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <select id="wp_subscription_appearance_skin" ng-model="wp_subscription_appearance_skin">
+                                                    <option class="ng-scope ng-binding" value="default">{{translation.DEFUALT}}</option> 
+                                                </select>
+                                                <i class=" fa fa-question-circle"></i> {{translation.DEFUALT_SKIN}}
+                                            </div>
+
+                                        </div>                                        
+
+                                      
+                                      
+
+                                        <div class="form-group row">
+                                            <div class="col-md-3"><label for="wp_subscription_appearance_custom_css">{{translation.CUSTUM_CSS_STYLES}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <textarea id="wp_subscription_appearance_custom_css" ng-model="wp_subscription_appearance_custom_css" cols="80" rows="4">{{wp_subscription_appearance_custom_css}}</textarea>
+                                            </div>
+                                            <div class="col-md-offset-3 col-md-9">
+                                                <i class=" fa fa-question-circle"></i> {{translation.CUSTUM_CSS_STYLES_MSG}}
+                                            </div>
+                                        </div>
+
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer">                        
+                                        <input type="button" class="btn btn-primary" name="update_setting_general_appearance"  value="{{translation.UPDATE}}" ng-click="update_setting_general_appearance()">   
+
+                                    </div>
+                                </form>
+                            </div><!-- /.box-body -->
+                        </div><!-- /. box -->     
+
+                    </div>
+
+                    <!-- /.tab-pane -->
+                    <div id="tab_security" class="tab-pane">
+                        <div class="box box-default box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Popup Setting</h3>                                
+                                <div class="box-tools">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div  class="box-body no-padding">
+                                <form role="form">
+                                    <div class="box-body"> 
+
+                                     <div  class="form-group ng-pristine ng-valid">
+                                        Current Popup Form ID {{wpsp_form_popup}}<hr>
+                                            <label for="wpsp_form">Change Popup Form</label><br>                        
+                                            <select name="wpsp_form_popup" id="wpsp_form_popup" class="form-control" ng-model="wpsp_form_popup" required>
+                                             <option ng-repeat="option in wpsp_forms" class="ng-scope ng-binding" ng-selected="{{option.id==wpsp_form_popup}}" value="{{option.id}}">{{option.wp_subscription_title}}</option>  
+                                            </select>
+                                            
+                                        </div>      
+                                         <label class="col-md-12">Select pages for enable popup</label>
+ <div  class="form-group"><hr>
+     <span class="col-md-3" ng-repeat="role in roles">
+  <input type="checkbox" checklist-model="user.roles" checklist-value="role.id"> {{role.text}}
+</span>
+</div>
+<div  class="form-group col-md-12"><br>
+<button ng-click="checkAll()" style="margin-right: 10px">Check all</button>
+<button ng-click="uncheckAll()" style="margin-right: 10px">Uncheck all</button>
+</div>
+ <div  class="form-group col-md-12"><hr>
+ <label>Show Newsletter modal Popup On Unique Request form</label>
+    <br>Cookie Count : <input type="text" class="" ng-model="wpsp_form_popup_count" id="wpsp_form_popup_count"value="{{wpsp_form_popup_count}}" placeholder=" "> Leave blank or set 0 for unlimited popup.
+    <br> eg.If you set 1 then only show popup form to user first visit.
+
+</div>
+<div  class="form-group col-md-12"><hr>
+ <label>Show Newsletter modal Popup Cookie duration</label>
+    <br>Cookie Time : <input type="text" class="" ng-model="wpsp_form_popup_time" id="wpsp_form_popup_time"value="{{wpsp_form_popup_time}}" placeholder=" "> In Days.
+    
+</div>
+                                                                     
+                                                                      
+                                       
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer">                        
+                                        <input type="button" class="btn btn-primary" name="update_setting_popup"  value="{{translation.UPDATE}}" ng-click="update_setting_popup()">	
+
+                                    </div>
+                                </form>
+                            </div><!-- /.box-body -->
+
+                        </div><!-- /. box -->   
+                         
+                    </div>
+
+ <!-- /.tab-pane -->
+                    <div id="tab_integration" class="tab-pane">
+                        <div class="box box-default box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">WordPress Register form setting</h3>                               
+                                <div class="box-tools">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div  class="box-body no-padding">
+                                <form role="form">
+                                    <div class="box-body"> 
+
+                                    <div class="form-group row">    
+                                            <div class="col-md-3"><label for="wp_subscription_register_list_id_enable">Enable WordPress Register Subscription</label></div>
+                                            <div class="col-md-9"> 
+                                                <input id="wp_subscription_register_list_id_enable" type="checkbox"   ng-checked="wp_subscription_register_list_id_enable == 1" ng-model="wp_subscription_register_list_id_enable">
+                                                <p>Add a 'Join our e-mail list' checkbox to your register form</p>                
+                                            </div>
+                                        </div>
+                                             
+
+                                        <div class="form-group row">    
+                                            <div class="col-md-3"><label for="wp_subscription_register_list_id_enable">Select list *</label></div>
+                                         <div class="col-md-9"> 
+                                          <div  class="form-group ng-pristine ng-valid" >
+                                            <select name="wp_subscription_register_list_id" id="wp_subscription_register_list_id" ng-model="wp_subscription_register_list_id" required>
+                                              <option ng-repeat="option in listItems" class="ng-scope ng-binding" value="{{option.id}}">{{option.list_name}}</option>
+                                            </select>
+                                            <p>On user register and user select option 'Join our e-mail list' then subscriber add selected list.</p>
+                                           </div>                                                
+                                          </div>
+
+                                        </div>  
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer">                        
+                                        <input type="button" class="btn btn-primary" name="update_setting_integration"  value="{{translation.UPDATE}}" ng-click="update_setting_integration()"> 
+
+                                    </div>
+                                </form>
+                            </div><!-- /.box-body -->
+
+                        </div><!-- /. box --> 
+
+                         <div class="box box-default box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">WP User form setting</h3>                               
+                                <div class="box-tools">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div  class="box-body no-padding">
+                                <form role="form">
+                                    <div class="box-body"> 
+
+                                    <div class="form-group row">    
+                                            <div class="col-md-3"><label for="wp_subscription_wp_user_register_list_id_enable">Enable WP User  Subscription</label></div>
+                                            <div class="col-md-9"> 
+                                                <input id="wp_subscription_wp_user_register_list_id_enable" type="checkbox"   ng-checked="wp_subscription_wp_user_register_list_id_enable == 1" ng-model="wp_subscription_wp_user_register_list_id_enable">
+                                                <p>Add a 'Join our e-mail list' checkbox to your WP User edit form</p>                
+                                            </div>
+                                        </div>
+                                             
+
+                                        <div class="form-group row">    
+                                            <div class="col-md-3"><label for="wp_subscription_wp_user_register_list_id_enable">Select list *</label></div>
+                                         <div class="col-md-9"> 
+                                          <div  class="form-group ng-pristine ng-valid" >
+                                            <select name="wp_subscription_wp_user_register_list_id" id="wp_subscription_wp_user_register_list_id" ng-model="wp_subscription_wp_user_register_list_id" required>
+                                              <option ng-repeat="option in listItems" class="ng-scope ng-binding" value="{{option.id}}">{{option.list_name}}</option>
+                                            </select>
+                                            <p>On <a href="https://wordpress.org/plugins/wp-user/" target="_blank" >WP user </a> plugin edit profile and user select option 'Join our e-mail list' then subscriber add selected list.</p>
+                                           </div>                                                
+                                          </div>
+
+                                        </div>  
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer">                        
+                                        <input type="button" class="btn btn-primary" name="update_setting_integration"  value="{{translation.UPDATE}}" ng-click="update_setting_integration()"> 
+
+                                    </div>
+                                </form>
+                            </div><!-- /.box-body -->
+
+                        </div><!-- /. box --> 
+
+
+                         <div class="box box-default box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">WordPress Comment form setting</h3>                               
+                                <div class="box-tools">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div  class="box-body no-padding">
+                                <form role="form">
+                                    <div class="box-body"> 
+
+                                    <div class="form-group row">    
+                                            <div class="col-md-3"><label for="wp_subscription_comment_list_id_enable">Enable WordPress Comment Subscription</label></div>
+                                            <div class="col-md-9"> 
+                                                <input id="wp_subscription_comment_list_id_enable" type="checkbox"   ng-checked="wp_subscription_comment_list_id_enable == 1" ng-model="wp_subscription_comment_list_id_enable">
+                                                <p>Add a 'Join our e-mail list' checkbox to your comment form</p>                
+                                            </div>
+                                        </div>
+                                             
+
+                                        <div class="form-group row">    
+                                            <div class="col-md-3"><label for="wp_subscription_comment_list_id">Select list *</label></div>
+                                         <div class="col-md-9"> 
+                                          <div  class="form-group ng-pristine ng-valid" >
+                                            <select name="wp_subscription_comment_list_id" id="wp_subscription_comment_list_id" ng-model="wp_subscription_comment_list_id" required>
+                                              <option ng-repeat="option in listItems" class="ng-scope ng-binding" value="{{option.id}}">{{option.list_name}}</option>
+                                            </select>
+                                            <p>If you have an email newsletter on your site, then comment forms can provide you a good opportunity to maximize your sign ups. You can easily add a checkbox in your comment form that gives the users an option to receive email updates from your site.</p>
+                                           </div>                                                
+                                          </div>
+
+                                        </div>  
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer">                        
+                                        <input type="button" class="btn btn-primary" name="update_setting_integration"  value="{{translation.UPDATE}}" ng-click="update_setting_integration()"> 
+
+                                    </div>
+                                </form>
+                            </div><!-- /.box-body -->
+
+                        </div><!-- /. box -->   
+                         
+                    </div>
+
+                    <!-- /.tab-pane -->
+                    <div id="tab_3" class="tab-pane">
+                        <div class="alert alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4><i class="icon fa fa-info"></i> {{translation.VARIABLE}}!</h4>
+                            {{translation.VARIABLE_MSG}}<br>
+                            {WPSP_ADMIN_EMAIL} {{translation.DISPLEAY_WPSP_ADMIN_EMAIL}}<br>
+                            {WPSP_BLOGNAME} {{translation.DISPLEAY_WPSP_BLOGNAME}}<br>
+                            {WPSP_BLOG_URL} {{translation.DISPLEAY_WPSP_BLOG_URL}}<br>
+                            {WPSP_BLOG_ADMIN} {{translation.DISPLEAY_WPSP_BLOG_ADMIN}}<br>
+                            {WPSP_FIRST_NAME} {{translation.DISPLEAY_WPSP_FIRST_NAME}}<br>
+                            {WPSP_LAST_NAME} {{translation.DISPLEAY_WPSP_LAST_NAME}}<br>
+                            {WPSP_EMAIL} {{translation.DISPLEAY_WPSP_EMAIL}}<br>
+                            {WPSP_LISTNAME} {{translation.DISPLEAY_WPSP_EMAIL}}<br>
+                        </div>
+                        <div  class="box-body no-padding">
+                            <form role="form">
+
+                                <div class="box box-default box-solid">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">{{translation.SEND_MAIL_SETTING}}</h3>                                
+                                        <div class="box-tools">
+                                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_email_name">{{translation.THE_NAME_THAT_APPEARS_ON_MAIL_SEND}} WP USER</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" id="wp_subscription_email_name" class="form-control" ng-model="wp_subscription_email_name" value="{{wp_subscription_email_name}}">                                                                                            
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_email_id">{{translation.THE_ADDRESS_THAT_APPEARS_ON_MAIL_SEND}}  WP User</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" id="wp_subscription_email_id" class="form-control" ng-model="wp_subscription_email_id" value="{{wp_subscription_email_id}}">                                                                                            
+                                            </div>
+                                        </div>
+                                    </div><!-- /.box-body -->
+                                </div><!-- /. box --> 
+
+                                <div class="box box-default box-solid">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">New Subscription </h3>                                
+                                        <div class="box-tools">
+                                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="form-group row row">
+                                            <div class="col-md-12">{{translation.ADMIN_NOTIFICATION}}</div>
+                                            <div class="col-md-3"><label for="wp_subscription_email_admin_register_enable">{{translation.SEND_AN_EMAIL_TO_ADMIN_WHEN_USER_SUBSCRIBE}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input id="wp_subscription_email_admin_register_enable" type="checkbox"   ng-checked="wp_subscription_email_admin_register_enable == 1" ng-model="wp_subscription_email_admin_register_enable">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_email_admin_register_subject">{{translation.SUBJECT}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" id="wp_subscription_email_admin_register_subject" class="form-control" ng-model="wp_subscription_email_admin_register_subject" value="{{wp_subscription_email_admin_register_subject}}">                                
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_email_admin_register_content">{{translation.EMAIL_CONTENT}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <textarea id="wp_subscription_email_admin_register_content" ng-model="wp_subscription_email_admin_register_content" cols="80" rows="4">{{wp_subscription_email_admin_register_content}}</textarea>                                                                             
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row row">
+                                            <div class="col-md-12">{{translation.USER_NOTIFICATION}}</div>
+                                            <div class="col-md-3"><label for="wp_subscription_email_user_register_enable">{{translation.SEND_AN_EMAIL_TO_USER_WHEN_USER_IS_SUBSCRIBE}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input id="wp_subscription_email_user_register_enable" type="checkbox"   ng-checked="wp_subscription_email_user_register_enable == 1" ng-model="wp_subscription_email_user_register_enable">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_email_user_register_subject">{{translation.SUBJECT}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" id="wp_subscription_email_user_register_subject" class="form-control" ng-model="wp_subscription_email_user_register_subject" value="{{wp_subscription_email_user_register_subject}}">                                
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row row">
+                                            <div class="col-md-3"><label for="wp_subscription_email_user_register_content">{{translation.EMAIL_CONTENT}}</label></div>
+                                            <div class="col-md-9"> 
+                                                <textarea id="wp_subscription_email_user_register_content" ng-model="wp_subscription_email_user_register_content" cols="80" rows="4">{{wp_subscription_email_user_register_content}}</textarea>                                                                             
+                                            </div>
+                                        </div>
+
+                                    </div><!-- /.box-body -->
+                                </div><!-- /. box -->                                
+                                
+
+                                <input type="button" class="btn btn-primary" name="update_setting_email"  value="{{translation.UPDATE}}" ng-click="update_setting_email()">	
+
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <!-- /.tab-pane -->
+                    <div id="tab_help" class="tab-pane">
+
+                        <div class="box box-default box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">{{translation.SHORTCODE}}</h3>                                
+                                <div class="box-tools">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body no-padding">                               
+                                <div class="box-body">                   
+                                    [wp_subscription] shortcode for display subscription form..<br>
+                                    [wp_subscription id='7'] shortcode for display subscription form with form id(7 is form id )<br>
+                                    [wp_subscription id='5' type='popup'] shortcode for popup subscription form on page load with form id (5 is form id)
+                                </div><!-- /.box-body -->                                
+                            </div><!-- /.box-body -->
+                        </div><!-- /. box -->  
+
+
+                         <div class="box box-default box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Documentation</h3>                                
+                                <div class="box-tools">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body no-padding">                               
+                                <div class="box-body">                   
+                                   <ul><li class="page_item page-item-882 page_item_has_children"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/setup/">Setup</a>
+<ul class="children">
+    <li class="page_item page-item-883"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/setup/installation/">Installation</a></li>
+</ul>
+</li>
+<li class="page_item page-item-894 page_item_has_children"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/hotw-to/">Hotw To</a>
+            <ul class="children">
+                <li class="page_item page-item-916"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/hotw-to/design-your-subscription-form-widget-or-shortcode/">Design your subscription form (widget or shortcode)</a></li>
+                <li class="page_item page-item-980"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/hotw-to/add-a-form-in-a-post-or-page-with-a-shortcode/">Add a form in a post or page with a shortcode</a></li>
+                <li class="page_item page-item-995"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/hotw-to/add-a-form-to-your-sidebar-with-a-widget/">Add a form to your sidebar with a widget</a></li>
+                <li class="page_item page-item-1005"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/hotw-to/use-the-forms-code-with-another-plugin-or-site/">Use the form’s code with another plugin or site</a></li>
+                <li class="page_item page-item-1010"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/hotw-to/add-a-form-to-another-site-with-an-iframe/">Add a form to another site with an iframe</a></li>
+            </ul>
+            </li>
+            <li class="page_item page-item-929 page_item_has_children"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/setting/">Setting</a>
+            <ul class="children">
+                <li class="page_item page-item-931"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/setting/autoresponder/">Autoresponder</a></li>
+                <li class="page_item page-item-939"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/setting/lists/">Lists</a></li>
+                <li class="page_item page-item-966"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/setting/popup/">Popup</a></li>
+                <li class="page_item page-item-988"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/setting/email-notifications/">Email Notifications</a></li>
+                <li class="page_item page-item-993"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/setting/forms/">Forms</a></li>
+            </ul>
+            </li>
+            <li class="page_item page-item-982"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/shortcode/">Shortcode</a></li>
+            <li class="page_item page-item-885"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/features/">Features</a></li>
+            <li class="page_item page-item-888"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/changelog/">Changelog</a></li>
+            <li class="page_item page-item-891"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/screenshots/">Screenshots</a></li>
+            <li class="page_item page-item-904 page_item_has_children"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/faq/">FAQ</a>
+            <ul class="children">
+                <li class="page_item page-item-906"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/faq/is-wp-subscription-plugin-mobile-friendly/">Is WP Subscription plugin mobile friendly ?</a></li>
+                <li class="page_item page-item-909"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/faq/does-wp-subscription-plugin-supports-other-email-integration/">Does WP Subscription plugin supports other email integration ?</a></li>
+                <li class="page_item page-item-911"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/faq/how-many-subscribe-forms-i-can-create/">How many Subscribe forms I can create ?</a></li>
+                <li class="page_item page-item-913"><a target="_blank" href="http://www.wpseeds.com/documentation/docs/wp-subscription/faq/how-can-i-export-subscribers-data-from-wp-subscription-form-plugin/">How can I export subscribers data from WP Subscription form plugin ?</a></li>
+            </ul>
+            </li>
+            </ul>
+                                </div><!-- /.box-body -->                                
+                            </div><!-- /.box-body -->
+                        </div><!-- /. box -->   
+
+                       
+                        <div class="box box-default box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">{{translation.WANT_MORE_FEATURE_OR_CUSTUMIZATION}}.</h3>                                
+                                <div class="box-tools">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body no-padding">                               
+                                <div class="box-body">                   
+                                    <p>{{translation.IF_YOU_WANT_MORE_FEATURE_THEN_DROP_MAIL}} :walke.prashant28@gmail.com</p>
+                                </div>
+                                <div class="box-footer">  
+                                    <div class="col-md-3">
+                                        <a target='_blank' href="http://www.wpseeds.com/support/" class="btn btn-block btn-sm btn-primary btn-flat"><i class="fa fa-support"></i> {{translation.SUPPORT}}</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a target='_blank' href="http://www.wpseeds.com/documentation/" class="btn btn-block btn-sm btn-primary btn-flat"><i class="fa fa-sticky-note-o"></i> {{translation.DOCUMENTATION}}</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a target='_blank' href="http://www.wpseeds.com/product/wp_subscription/" class="btn btn-block btn-sm btn-success btn-flat"><i class="fa fa-dollar"></i> {{translation.PRO_FEATURES}}</a>
+                                    </div>
+                                </div><!-- /.box-body -->                                
+                            </div><!-- /.box-body -->
+                        </div><!-- /. box --> 
+
+                    </div>
+
+
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+        </div><!-- /.row -->
+    </div>
+</div><!-- /.aj -->
+<style>
+.wpspsettingController li {
+    list-style-type: disc;
+    margin-left: 21px;
+}</style>

@@ -1,0 +1,266 @@
+<div class="nav-tabs-custom" ng-controller="wpspdashboardController" ng-init="getdashboardreport('all')">
+            <ul class="nav nav-tabs pull-right">
+              <li ng-click="getdashboardreport('all')" class="active"><a  href="#tab_1-1" data-toggle="tab">All</a></li>
+               <li ng-click="getdashboardreport('year')" class=""><a  href="#tab_1-1" data-toggle="tab">Year</a></li>
+              <li ng-click="getdashboardreport('last_month')"><a  href="#tab_1-1" data-toggle="tab">Last 1 Month</a></li>
+              <li ng-click="getdashboardreport('current_month')"><a  href="#tab_1-1" data-toggle="tab" >This Month</a></li>  
+               <li ng-click="getdashboardreport('last_seven_day')"><a  href="#tab_1-1" data-toggle="tab">Last 7 Days</a></li>                  
+              <li class="pull-left header"><a href="#tab_1-1" data-toggle="tab">Dashboard</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab_1-1" style="display: block;background:#e5e5e5">
+       
+
+
+
+
+<div >
+<div class="row">
+        <div class="col-lg-2 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>{{dashbordData.list_count}}</h3>
+
+              <p>Lists</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-tags"></i>
+            </div>
+            <a href="{{dashbordData.site_url}}/wp-admin/admin.php?page=wpsp-subscribersLists" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+         <div class="col-lg-2 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>{{dashbordData.totaforms}}</h3>
+
+              <p>Forms</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-list"></i>
+            </div>
+            <a href="{{dashbordData.site_url}}/wp-admin/admin.php?page=wpsp-forms" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>{{dashbordData.total_campaigns}}</h3>
+
+              <p>Campain</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>{{dashbordData.subscribers_count}}</h3>
+
+              <p>Subscribers</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <a href="{{dashbordData.site_url}}/wp-admin/admin.php?page=wpsp-subscribers" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>{{dashbordData.subscribersCount}}</h3>
+
+              <p>Active Subscribers</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-user-plus"></i>
+            </div>
+            <a href="{{dashbordData.site_url}}/wp-admin/admin.php?page=wpsp-subscribers" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>{{dashbordData.nonsubscribersCount}}</h3>
+
+              <p>Unsubscribe</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-user-times"></i>
+            </div>
+            <a href="{{dashbordData.site_url}}/wp-admin/admin.php?page=wpsp-subscribers" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+
+<div class="row">
+        <div class="col-lg-7 col-xs-6">
+     <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class=""><a href="" id="{{reportid}}" class="download_list_id" title="Download CSV"><i class="download_link fa fa-download"></i> Subscriber</a> </li>
+                    <li class="pull-right active"><a data-toggle="tab" href="/wpspdashboardController#tab_1" aria-expanded="true" class="ng-binding">{{report}}</a></li>                                       
+                 </ul>
+                  <div class="tab-content">
+                   <div id="tab_security" class="tab-pane active" line-chart line-data='subscriberchartData' line-xkey='y'
+                      line-ykeys='["subscribed", "unsubscribed"]'
+                      line-labels='["Subscribe", "Unsubscribe"]'
+                      line-colors='["#31C0BE", "#c7254e"]'>                    
+                   
+                    </div>
+                   
+                                         
+                      
+                     
+                  </div>
+     </div>
+     </div>
+
+        <div class="col-lg-5 col-xs-6">
+     <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class=""><a class="text-muted" href="#"><i class="fa fa-gear">Category</i></a></li>
+                    <li class="pull-right active"><a   data-toggle="tab" href="/wpspdashboardController#tab_cat" aria-expanded="true" class="ng-binding"><i id="{{reportid}}" title="Download CSV" class="download_link subscribers_category fa fa-download">  </i> Active Subscriber</a></li>
+                    <li class="pull-right"><a  data-toggle="tab" href="/wpspdashboardController#tab_uncat" aria-expanded="false" class="ng-binding"><i id="{{reportid}}" class="download_link unsubscribed_category fa fa-download" title="Download CSV" > </i> Unsubscriber</a></li>                    
+                 </ul>
+                  <div class="tab-content">
+                         <div id="tab_cat" class="tab-pane active" donut-chart donut-data='categorychartdata' donut-colors='["#31C0BE","#c7254e","#98a0d3"]'>                        
+                    </div>
+                      <div id="tab_uncat" class="tab-pane" donut-chart donut-data='unsbuscribecategory' donut-colors='["#31C0BE","#c7254e","#c72544"]'>
+                      
+                    </div>
+                  </div>
+     </div>
+
+     </div>
+     
+</div>
+<div class="row">
+ <div class="col-lg-7 col-xs-6">
+    <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class=""><a href="" id="{{reportid}}" class="download_list_id" title="Download CSV"><i class="download_link fa fa-download"></i> Subscriber </a></li>                    
+                    <li class="pull-right active"><a data-toggle="tab" href="/wpspdashboardController#tab_security" aria-expanded="false" class="ng-binding">{{report}}</a></li>                    
+                 </ul>
+                  <div class="tab-content">                   
+                        <div id="tab_1" class="tab-pane active" bar-chart bar-data='subscriberchartData' bar-x='y'
+                        bar-y='["subscribed", "unsubscribed"]'
+                        bar-labels='["Subscribe", "Unsubscribe"]'
+                        bar-colors='["#31C0BE", "#c7254e"]'>
+                        
+                    </div>                    
+                      
+                     
+                  </div>
+     </div>            
+ </div>
+<div class="col-lg-5 col-xs-6">
+    
+     <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class=""><a class="text-muted" href="#"><i class="fa fa-gear">Top Category</i></a></li>
+                    <li class="pull-right active"><a data-toggle="tab" href="/wpspdashboardController#tab_cat_list" aria-expanded="true" class="ng-binding">Active Subscriber</a></li>
+                    <li class="pull-right"><a data-toggle="tab" href="/wpspdashboardController#tab_uncat_list" aria-expanded="false" class="ng-binding">Unsubscriber</a></li>                    
+                 </ul>
+                  <div class="tab-content">
+                 <div id="tab_cat_list" class="tab-pane active">
+                         <ul ng-repeat="categoriy in categories">
+                    <li class="text-green">{{ categoriy.list_name }} ({{ categoriy.subscriber_count }})
+                   </li>
+                </ul>
+                    </div>
+                      <div id="tab_uncat_list" class="tab-pane">
+                      <ul ng-repeat="categoriy in unsubcategories">
+                    <li class="text-red">{{ categoriy.list_name }} ({{ categoriy.subscriber_count }})
+                   </li>
+                </ul>
+                    </div>
+                  </div>
+    
+     </div>
+
+</div>
+</div>
+ </div><!-- /.aj -->
+ </div>
+              <!-- /.tab-pane -->
+           
+              <!-- /.tab-pane -->
+           
+              <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+          </div>     
+
+           <script type="text/javascript">
+              jQuery(document).on("click", ".download_list_id", function() {       
+        var id = this.id;
+        var fileName = 'subscribers'+this.id;
+        jQuery.ajax({
+      url: wpsubscription_link.wpsubscription_ajax_url+'?action=wpuser_getreport',
+      data: {
+        id: id,
+        repoty_type: 'subscribers'
+      },            
+      success: function(data) {
+         JSONToCSVConvertor(data, fileName,true);       
+      },
+      type: 'POST'
+   });      
+    }); 
+
+              jQuery(document).on("click", ".unsubscribed_category", function() {       
+        var id = this.id;
+        var fileName = 'unsubscribed_category'+this.id;
+        jQuery.ajax({
+      url: wpsubscription_link.wpsubscription_ajax_url+'?action=wpuser_getreport',
+      data: {
+        id: id,
+        repoty_type: 'unsubscribed_category'
+      },            
+      success: function(data) {
+         JSONToCSVConvertor(data, fileName,true);       
+      },
+      type: 'POST'
+   });      
+    }); 
+
+        jQuery(document).on("click", ".subscribers_category", function() {       
+        var id = this.id;
+        var fileName = 'subscribers_category'+this.id;
+        jQuery.ajax({
+      url: wpsubscription_link.wpsubscription_ajax_url+'?action=wpuser_getreport',
+      data: {
+        id: id,
+        repoty_type: 'subscribers_category'
+      },            
+      success: function(data) {
+         JSONToCSVConvertor(data, fileName,true);       
+      },
+      type: 'POST'
+   });      
+    }); 
+
+           
+
+
+
+           </script>        
+           <style type="text/css">
+             .download_link{
+              color: #3c8dbc !important;
+                  cursor: pointer;
+             }
+           </style>    

@@ -1,0 +1,111 @@
+<div ng-controller="wpspautoresponderController">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="/wpspautoresponderController#tab_1" aria-expanded="true">Autoresponder</a></li>                   
+                    <li class="pull-right"><a class="text-muted" href="#"><i class="fa fa-gear"></i></a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab_1" class="tab-pane active">
+                        <div class="box box-default box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">MailChimp Settings</h3>                                
+                                <div class="box-tools">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div ng-init="get_setting_form()" class="box-body no-padding">
+                                <form role="form">
+                                    <div class="box-body">              
+                                     <p>After you have entered a valid API key you will be able to select different MailChimp options on form.</p>     
+                                         <div class="form-group row row">
+                                            <div class="col-md-3"><label for="mailchimp_apikey">MailChimp API Key</label></div>
+                                            <div class="col-md-9"> 
+                                                <input type="text" class="form-control" ng-model="mailchimp_apikey" id="mailchimp_apikey"value="{{mailchimp_apikey}}" placeholder="API Key">
+                                                Visit <a href="http://admin.mailchimp.com/account/api" target="_blank">your API dashboard</a> to create an API key.
+                                            </div>
+
+                                        </div>
+
+                                         <div class="form-group row row">
+                                          <div class="col-md-3">
+                                        <label for="wp_subscription_enable_auto_opt_mailchimp">Auto Opt-in</label>
+                                         </div>
+                                         <div class="col-md-9"> 
+                                            <input  id="wp_subscription_enable_auto_opt_mailchimp" type="checkbox"  id="wp_subscription_enable_auto_opt_mailchimp" ng-checked="wp_subscription_enable_auto_opt_mailchimp == 1" ng-model="wp_subscription_enable_auto_opt_mailchimp">
+                                            <p>Automatically opt-in new users to the mailing list. Users will not receive an email confirmation. Use at your own risk.</p>
+                                        </div>
+                                         </div>
+
+                                          <div class="form-group row row">
+                                          <div class="col-md-3">
+                                        <label for="wp_subscription_enable_ignore_email_mailchimp">Ignore email addresses including + signs</label>
+                                         </div>
+                                         <div class="col-md-9"> 
+                                            <input  id="wp_subscription_enable_ignore_email_mailchimp" type="checkbox"  id="wp_subscription_enable_ignore_email_mailchimp" ng-checked="wp_subscription_enable_ignore_email_mailchimp == 1" ng-model="wp_subscription_enable_ignore_email_mailchimp">
+                                            <p>Ignore email address including + signs. These are usually duplicate accounts.</p>
+                                        </div>
+                                         </div>
+
+
+                                        <div class="form-group row row">
+                                            <div class="col-md-3"><label for="mailchimp_apikey">Status</label></div>
+                                            <div class="col-md-9"> 
+                                                <span ng-if=" mailchimp_apikey_test== 'CONNECTED'" class="label label-success">{{mailchimp_apikey_test}}</span>
+                                                <span ng-if=" mailchimp_apikey_test!= 'CONNECTED'" class="label label-danger">{{mailchimp_apikey_test}}</span>
+                                                <p>{{mailchimp_apikey_list_message}}</p>
+                                                <div ng-if=" mailchimp_apikey_test== 'CONNECTED'" class="box">
+                                                        <div class="box-header with-border">
+                                                          <h3 class="box-title">MailChimp Lists</h3>
+                                                        </div>
+                                                        <!-- /.box-header -->
+                                                        <div class="box-body">
+                                                          <table class="table table-bordered">
+                                                            <tbody><tr>
+                                                              <th style="width: 10px">#</th>
+                                                              <th>List Name</th>
+                                                              <th>Id</th>    
+                                                              <th>Subscribers</th>                
+                                                            </tr>
+                                                            <tr ng-repeat="mailchimp_list in mailchimp_lists">
+                                                                <td>{{$index+1}}</td>
+                                                                <td>{{mailchimp_list.name}}</td>
+                                                                <td>{{mailchimp_list.id}}</td>
+                                                                <td><span class="badge bg-light-gray">{{mailchimp_list.stats['member_count']}}</span></td>
+                                                            </tr>         
+                                                          </tbody></table>
+                                                        </div>
+                                                        <!-- /.box-body -->
+                                                 </div>
+                                              </div>
+
+                                             </div>
+
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer">                        
+                                        <input type="button" class="btn btn-primary" name="update_setting_form"  value="{{translation.UPDATE}}" ng-click="update_setting_form()">	
+
+                                    </div>
+                                </form>
+                            </div><!-- /.box-body -->
+                        </div><!-- /. box -->  
+
+
+                       
+                       
+
+                    </div>
+                    <!-- /.tab-pane -->
+                    
+
+                  
+                  
+                </div>
+                <!-- /.tab-content -->
+            </div>
+        </div><!-- /.row -->
+    </div>
+</div><!-- /.aj -->
